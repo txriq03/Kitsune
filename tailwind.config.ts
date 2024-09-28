@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			sans: ['var(--font-quicksand)']
+		},
 		colors: {
 			primary: '#201F31',
 			secondary: '#FFBADE',

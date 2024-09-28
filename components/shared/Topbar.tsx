@@ -11,14 +11,16 @@ const Topbar = () => {
 
         {/* Logo */}
         <Link href="/">
-          <h1 className='text-secondary text-xl'>Sakura</h1>
+          <h1 className='text-secondary text-xl font-bold'>Sakura</h1>
         </Link>
 
         {/* Search input */}
-        <Input placeholder='Search anime...' className='w-[35%] bg-zinc-500 bg-opacity-20 py-5 border-none placeholder-zinc-400 hover:bg-zinc-500 hover:bg-opacity-35 text-white active:ring-none active:border-none active:outline-none focus:outline-none focus:border-none focus:ring-none'/>
+        <Input placeholder='Search anime...' className='w-[35%] shadow-sm hover:shadow-md bg-zinc-500 bg-opacity-20 py-5 border-none placeholder-zinc-400 hover:bg-zinc-500 hover:bg-opacity-35 text-white placeholder:font-semibold'/>
 
         {/* Buttons */}
-        <Button className='bg-secondary'>Login</Button>
+        <Link href='/login'>
+          <Button className='bg-secondary hover:ring-[2px] hover:ring-secondary text-gray-900 hover:text-white '>Login</Button>
+        </Link>
       </div>
 
 
