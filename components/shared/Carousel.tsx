@@ -25,7 +25,6 @@ const Carousel = () => {
 
   return (
     <Slider {...settings}>
-        {/* <Banner /> */}
         {trending?.map((anime: any) => (
           <Banner key={anime.id} cover={anime.cover} />
         ))}
