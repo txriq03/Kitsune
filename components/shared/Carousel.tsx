@@ -1,35 +1,36 @@
 "use client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Banner from "./Banner";
 import { useQuery } from "@tanstack/react-query";
 import { getTrending } from "@/lib/queries";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
 const Carousel = () => {
-  // const [trending, setTrending] = useState();
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-  };
 
   const { data: trending } = useQuery({
-    queryKey: ['trendingData'],
-    queryFn: () => getTrending()
-  })
-
+    queryKey: ["trendingData"],
+    queryFn: () => getTrending(),
+  });
 
   return (
-    <Slider {...settings}>
-        {trending?.map((anime: any) => (
-          <Banner key={anime.id} cover={anime.cover} />
-        ))}
-    </Slider>
+    <Swiper
+      navigation
+      pagination={{ clickable: true }}
+      modules={[Navigation, Pagination]}
+      slidesPerView={1}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
 
+      {trending?.map((anime: any, index: number) => (
+        <SwiperSlide key={index}>
+          <Banner cover={anime.cover} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
