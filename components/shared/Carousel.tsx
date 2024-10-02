@@ -28,7 +28,7 @@ const Carousel = () => {
 
       {trending?.map((anime: any, index: number) => (
         <SwiperSlide key={index}>
-          <Banner cover={anime.cover} />
+          <Banner cover={anime.cover} title={anime.title.english} description={anime.description}/>
         </SwiperSlide>
       ))}
     </Swiper>
